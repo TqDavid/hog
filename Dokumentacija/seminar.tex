@@ -1,0 +1,143 @@
+\documentclass[times, utf8, seminar, numeric]{fer}
+\usepackage{booktabs, url, hyperref}
+\usepackage{verbatim}
+\usepackage{moreverb}
+\usepackage{subfigure}
+\usepackage{caption}
+\usepackage{epstopdf}
+\usepackage{amsthm}
+
+\hypersetup{
+   colorlinks,
+   citecolor=black,
+   filecolor=black,
+   linkcolor=black,
+   urlcolor=black
+}
+
+%dodatak za programski kod
+\usepackage{listings}
+\usepackage{color}
+\usepackage{setspace}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=Java,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=left,
+  numberstyle=\small\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=2
+}
+
+
+\begin{document}
+
+% TODO: Navedite naslov rada.
+\title{Histogram of Oriented Gradients for detection and tracing people}
+
+% TODO: Navedite vaše ime i prezime.
+\author{Petra Bevandić \\ Dragan Drandić \\ Melita Kokot \\ Igor Smolkovič \\ Dino Šantl}
+
+\maketitle
+
+\tableofcontents
+
+\chapter{Prikupljena literatura}
+
+\begin{itemize}
+\item Navneet Dalal, i Bill Triggs. Histogram of Oriented Gradients for Human Detection. U International conference on Computer Vision & Pattern Recognition, Vol. 1, stranice 886-893, Lipanj 2005. URL: \url{http://lear.inrialpes.fr/people/triggs/pubs/Dalal-cvpr05.pdf}
+- opisan histogram orijentiranih gradijenata
+- analiziran utjecaj raznih parametara histograma na performanse
+- HOG primjenjene na prepoznavanje pješaka (uz korištenje SVM-a)
+- MIT i Inria baza pješaka, cca 2500 slika, originalne reflektirane
+- izdvajanje "teških" primjera
+- postojanje okoline oko osobe
+\end{itemize}
+
+Qiang Zhu, Shai Avidan, Mei-Chen Yeh, i Kwang-Ting Cheng. Fast Human Detection Using a CAscade of Histograms of Oriented Gradients. U U International conference on Computer Vision & Pattern Recognition, Vol. 2, stranice 1491-1498, Lipanj 2006. URL: http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.68.6232&rep=rep1&type=pdf
+- ubrzanje traženja ljudi u slikama
+- ne koriste blokove fiksne veličine - globalne karakteristike
+- Ada-Boost
+- korištenje "integralne slike" - koriste se HOG-ovi izračunati za manje blokove da bi se ubrzalo računanje histograma za veće blokove
+- slučajan odabir blokova koji idu u klasifikator
+
+
+Frédéric Suard, Alain Rakotomamonjy, Abdelaziz Bensrhair, i Alberto Broggi. Pedestrian Detection Using Infrared Images and Histograms of Oriented Gradients. U Intelligent Vehicles Symposium, stranice 206-212, 2006. URL: http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.80.1379&rep=rep1&type=pdf
+- detekcija ljudi pomoću infracrvenih slika
+- HOG značajke, SVM klasifikator
+- primjena u detekciji pješaka noću
+- odabir optimalnih parametara svih stavaka sustava za detekciju osoba
+- osrednji rezultati
+
+Paul E. Rybski, Daniel Huber, Daniel D. Morris, i Regis Hoffman. Visual Classiﬁcation of Coarse Vehicle Orientation Using Histogram of Oriented Gradients Features. URL: http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.183.4072&rep=rep1&type=pdf
+- detekcija orijentacije vozila iz slike (bez informacije o smjeru kretanja)
+- jednostavna primjena prethodno opisanog algoritma na prepoznavanje vozila
+- korištena javno dostupna implementacija HOG-a
+- vrlo dobri rezultati
+
+
+Marco Pedersoli, Jordi Gonzàlez, Bhaskar Chakraborty, i Juan J. Villanueva. Enhancing Real-time Human Detection based on Histograms of Oriented Gradients. URL: http://iselab.cvc.uab.es/files/Publications/2007/PDF/CORES07_MP.pdf
+- ubrzanje računanje HOG-a, izrada frameworka za detekciju osoba
+- (pristupi detekciji osoba - detekcija cijele osobe vs. detekcija dijelova koji su povezani)
+- AdaBoost
+- računanje značajki za veće blokove preko značajki za manje blokove
+- MIT baza osoba
+
+
+Fatih Porikli. Integral Histogram: A fast way to Extract Histograms in Cartesian Spaces. U International conference on Computer Vision & Pattern Recognition, Vol. 1, stranice 829-836, Lipanj 2005. URL: http://www.merl.com/reports/docs/TR2005-057.pdf
+- primjenjiv u sustavima koji rade u realnom vremenu
+- koristi se ta bilo koju metodu koja traži maksimalno preklapanje histograma
+
+
+„Multitarget Tracking of Pedestrians in Video Sequences Based on Particle Filters“, Hui Li, Shengwu Xiong, Pengfei Duan, Xiangzhen Kong
+
+“Object Tracking in Crowded Video Scenes Based on the Undecimated Wavelet Features and Texture Analysis”, M. Khansari, H. R. Rabiee, M. Asadi, M. Ghanbari
+
+“Real-time object detection and tracking for industrial applications”, Selim Benhimane, Hesam Najafi, Matthias Grundmann, Ezio Malis, Yakup Genc, Nassir Navab
+
+“Efficient Tracking of Many Objects in Structured Environments”, Nathan Jacobs, Michael Dixon, Scott Satkin, Robert Pless
+
+“Fast and accurate moving object exraction technique for MPEG-4 object-based video coding”, Ju Guo, Jongwon Kim, C.C: Jay Kuo
+
+﻿
+
+\chapter{Dijagram planiranog sustava}
+
+\chapter{Baza slika/videa}
+
+\chapter{Programski alati}
+
+%\bibliography{literatura}
+%\bibliographystyle{fer} %promijena za citiranje po redu ieeetr
+%\bibliographystyle{ieeetr}
+
+\begin{comment}
+\begin{sazetak}
+Simbolička regresija je postupak otkrivanja matematičkog izraza u skupu podataka. Daje se pregled metoda za simboličku regresiju s naglaskom na genetsko programiranje. Obrađuju se problemi kao što su domene funkcija (nisu definirane na cijelom skupu realnih brojeva). Problemi se rješavaju intervalnom aritmetikom i linearnim skaliranjem. Na kraju se ukratko opisuje mogućnost paralelizacije i primjene. 
+
+\kljucnerijeci{genetsko programiranje, s}
+
+\end{sazetak}
+
+% TODO: Navedite naslov na engleskom jeziku.
+\engtitle{Application of graphics coprocessors for program execution on stream programming model}
+
+\begin{abstract}
+
+
+\keywords{GPU, StreamIt, Sponge, StreamGate, CUDA, stream model, filter, optimization, graphics card}
+\end{abstract}
+\end{comment}
+
+\end{document}
