@@ -1,0 +1,104 @@
+﻿Navneet Dalal, i Bill Triggs. Histogram of Oriented Gradients for Human Detection. U International conference on Computer Vision & Pattern Recognition, Vol. 1, stranice 886-893, Lipanj 2005. URL: http://lear.inrialpes.fr/people/triggs/pubs/Dalal-cvpr05.pdf
+- opisan histogram orijentiranih gradijenata
+- analiziran utjecaj raznih parametara histograma na performanse
+- HOG primjenjene na prepoznavanje pješaka (uz korištenje SVM-a)
+- MIT i Inria baza pješaka, cca 2500 slika, originalne reflektirane
+- izdvajanje "teških" primjera
+- postojanje okoline oko osobe
+
+
+Qiang Zhu, Shai Avidan, Mei-Chen Yeh, i Kwang-Ting Cheng. Fast Human Detection Using a CAscade of Histograms of Oriented Gradients. U U International conference on Computer Vision & Pattern Recognition, Vol. 2, stranice 1491-1498, Lipanj 2006. URL: http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.68.6232&rep=rep1&type=pdf
+- ubrzanje traženja ljudi u slikama
+- ne koriste blokove fiksne veličine - globalne karakteristike
+- Ada-Boost
+- korištenje "integralne slike" - koriste se HOG-ovi izračunati za manje blokove da bi se ubrzalo računanje histograma za veće blokove
+- slučajan odabir blokova koji idu u klasifikator
+
+
+Frédéric Suard, Alain Rakotomamonjy, Abdelaziz Bensrhair, i Alberto Broggi. Pedestrian Detection Using Infrared Images and Histograms of Oriented Gradients. U Intelligent Vehicles Symposium, stranice 206-212, 2006. URL: http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.80.1379&rep=rep1&type=pdf
+- detekcija ljudi pomoću infracrvenih slika
+- HOG značajke, SVM klasifikator
+- primjena u detekciji pješaka noću
+- odabir optimalnih parametara svih stavaka sustava za detekciju osoba
+- osrednji rezultati
+
+
+Paul E. Rybski, Daniel Huber, Daniel D. Morris, i Regis Hoffman. Visual Classiﬁcation of Coarse Vehicle Orientation Using Histogram of Oriented Gradients Features. URL: http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.183.4072&rep=rep1&type=pdf
+- detekcija orijentacije vozila iz slike (bez informacije o smjeru kretanja)
+- jednostavna primjena prethodno opisanog algoritma na prepoznavanje vozila
+- korištena javno dostupna implementacija HOG-a
+- vrlo dobri rezultati
+
+
+Marco Pedersoli, Jordi Gonzàlez, Bhaskar Chakraborty, i Juan J. Villanueva. Enhancing Real-time Human Detection based on Histograms of Oriented Gradients. URL: http://iselab.cvc.uab.es/files/Publications/2007/PDF/CORES07_MP.pdf
+- ubrzanje računanje HOG-a, izrada frameworka za detekciju osoba
+- (pristupi detekciji osoba - detekcija cijele osobe vs. detekcija dijelova koji su povezani)
+- AdaBoost
+- računanje značajki za veće blokove preko značajki za manje blokove
+- MIT baza osoba
+
+
+Fatih Porikli. Integral Histogram: A fast way to Extract Histograms in Cartesian Spaces. U International conference on Computer Vision & Pattern Recognition, Vol. 1, stranice 829-836, Lipanj 2005. URL: http://www.merl.com/reports/docs/TR2005-057.pdf
+- primjenjiv u sustavima koji rade u realnom vremenu
+- koristi se ta bilo koju metodu koja traži maksimalno preklapanje histograma
+- 
+
+Dosad napravljeno
+- proučena literatura, prikupljene baze
+- INRIA, učenje HOG-a, predprocesiranje baze, ekstrakcija značajki, prvi eksperimenti s klasifikatorima
+- pronađene potrebne biblioteke
+- početak rada sa video sekvencama - izlučivanje pozadine, detekcija objekata unutar slika, izlučivanje objekata iz slika
+- "adminisracijski poslovi" - repozitorij
+
+Literatura - praćenje objekata
+
+APLIKACIJE I PRISTUPI PRI RJEŠAVANJU PROBLEMATIKE OBRADE POKRETNIH SLIKA
+
+
+Napredak u tehnologiji krajnjim korisnicima omogućava veći pristup uređajima za prikupljanje video podataka i samim time nalaže računarskoj znanosti da se sve intenzivnije bavi područjem analize pokretne slike, obzirom da je količina informacija koju nosi pokretna slika daleko veća od količine informacija koju sadrži „obična“ fotografija.
+
+Zahtjevi za primjenama obrade video sekvenci u stvarnom životu su raznoliki, a obzirom na njihovu svrhu mogu se klasificirati u međusobno odvojive skupine od kojih su neke:
+
+-	primjena u javnoj i osobnoj sigurnosti
+-	industrijska primjena
+-	kompresija video zapisa
+
+
+Primjena u javnoj sigurnosti
+
+Porastom broja nadzornih kamera na javnim mjestima (ulice, trgovi, javne institucije, autoceste...) prepoznata je mogućnost općenitije analize na taj način prikupljenih podataka za pozamašan broj ciljeva. Ako želimo biti apsolutno iskreni, dio tih ciljeva i nisu toliko plemenite prirode te zadiru (i prelaze granicu) u niz zakonskih ograničenja, a ponajviše u skup zajamčenih prava osoba na privatnost. No, kako živimo u civiliziranom društvu a ne u plemenima, složiti ćemo se s činjenicom da se iz tog skupa podataka mogu ekstrapolirati mnoge neutralne informacije koje su primjenjive za za donošenje odluka i predviđanja nepoželjnih situacija u apsolutnom cilju realne sigurnosti cijelog društva.
+
+Analiza snimki stanja na cestama i autocestama mogu nam dati korisne informacije o zastojima i omogućiti rasterećivanje određenih ruta u korist svim sudionicima u prometu. Snimke stanja na velikim (i manjim) raskrižjima mogu optimizirati odluke automatskih sustava za upravljanje prometom...
+
+Iz snimki javnih prostora mogu se dobiti informacije korisne za više grana suvremene znanosti, ali i za identificiranje izravnih prijetnji te upravljanje prostorom u cilju poboljšanja sigurnosti svih korisnika (planiranje općenitih ruta za evakuaciju u slučajevima kad prostor zahtijeva povećanu razinu sigurnosti, te u slučajevima iznenadnih prijetnji).
+
+Sve te informacije mogu biti korištene i za opširniji i multiperspektivni „pogled u prošlost“ za potrebe identificiranja uzroka nekog stanja u službi identificiranja rane prijetnje za buduće primjene.
+
+No ipak, u velikoj većini slučajeva zahtjevi za rješenjima obrade video sekvenci odnosi se na trenutnu obradu podataka što taj problem čini vrlo složenim.
+Industrijska primjena
+
+Primjena prepoznavanja 3D objekata razvojem tehnologija obrade video sekvenci dobiva na sve većoj važnosti. Svrha u industrijskim procesima može biti raznolika: od analize, optimizacije i automatizacije idustrijskih procesa do pomoći sudionicima u upravljanjima složenim aktivnostima putem „augmented reality“ vizualizacije.
+
+
+Kompresija video zapisa
+
+Napredak u optimizaciji video zapisa analizom video zapisa kontinuiran je proces od samih začetaka digitalizacije videa iz razloga što se (iako kapaciteti za skladištenje i prijenos video podatak kontinuirano rastu) povećava i količina video materijala koju je potrebno prenesti i / ili skladištiti.
+
+Intuitivno rješenje za taj problem je trivijalna „settle for less“ strategija pri kojoj se zapisi stvaraju i skladište u manjoj kvaliteti i s manjim FPS-om da bi se smanjilo njihovo opterećenje resursa.
+
+Novi pristup tom rješenju koje ne ide nauštrb kvalitete jest činjenica da se u gotovo svim video sekvencama iz kadra u kadar izmjenjuju pojedini, uvjetno rečeno, pokretni dijelovi kadra dok ostatak slike ostaje nepromijenjen ili promijenjen tek u manjem opsegu te se može „ignorirati“. Za primjenu te strategije potrebno je moći izolirati pokretne dijelove, po mogućnosti u „realnom vremenu“.
+
+
+Općenito
+
+U svim navedenim primjenama imperativ algoritmima koji se primjenjuju je da moraju u što kraćem vremenu i što preciznije izdvojiti pokretne dijelove iz video sekvenci, obraditi ih i identificirati te takve predati sustavima za obradu prikupljenih podataka u specifične svrhe.
+
+Veliki je broj radova koji se bave tom tematikom, i svi predlažu razne nove metode izdvajanja objekta iz pozadine ili optimiziraju postojeće, a u ovisnosti o parametrima problema koji se rješava i prirodi i strukturi ulaznih podataka.
+
+Ovdje su opisane neke od općenitih problematika koje spadaju u domenu računalnog vida, a detaljnije ponuđene metode njihovog rješavanja opisane su u daljnjem tekstu navedenim radovima.
+
+-	„Multitarget Tracking of Pedestrians in Video Sequences Based on Particle Filters“, Hui Li, Shengwu Xiong, Pengfei Duan, Xiangzhen Kong
+-	“Object Tracking in Crowded Video Scenes Based on the Undecimated Wavelet Features and Texture Analysis”, M. Khansari, H. R. Rabiee, M. Asadi, M. Ghanbari
+-	“Real-time object detection and tracking for industrial applications”, Selim Benhimane, Hesam Najafi, Matthias Grundmann, Ezio Malis, Yakup Genc, Nassir Navab
+-	“Efficient Tracking of Many Objects in Structured Environments”, Nathan Jacobs, Michael Dixon, Scott Satkin, Robert Pless
+-	“Fast and accurate moving object exraction technique for MPEG-4 object-based video coding”, Ju Guo, Jongwon Kim, C.C: Jay Kuo
