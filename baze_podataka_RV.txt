@@ -1,0 +1,63 @@
+Baze podataka
+
+Uvod
+
+Za promatrani problem koristi se dvije vrste baza podataka. Prva vrsta sastoji 
+se od slika a druga vrsta od video snimaka.  
+
+Dostupne baze podataka
+
+INRIA
+
+Baza se sastoji od slika. Navedena baza korištena je upravo za testiranje HOG 
+algoritma. Podijeljena je na pozitivne (na slici se nalazi jedna ili više osoba)
+i negativne (osoba na slici nema). Uz to, baza sadrži i opisnike slike koji
+u sebi sadrže informaciji o pozicijama osoba na slikama. Slike su dostupne u
+više različitih dimenzija (pixel x pixel): 70x134, 96x160 i 64x128.  
+Baza se sastoji od ukupno 1218 negativnih primjera slika i 614 pozitivnih slika.
+Za generiranje negativnih primjera negativne slike mogu se izrezivati na bilo
+koji način. Nad pozitivnim slikama definirani su opisnici tako da se ukupno 
+može generirati 2500 pozitivnih primjera.
+
+CAVIAR Test Case Scenarios
+
+Baza se sastoji od video snimaka. Baza je bazirana na javnim nadzornim kamerama.
+Baza se sastoji od skupa ciljanih akcija osoba. Detekcija akcija nije u središtu
+ovog projekta pa se mogu koristiti sve snimke ravnopravno. Dimenzija slika u 
+video snimkama je 384px x 288px. Format je MPEG2 i sadrži 25 slika u sekundi.
+
+PETS 2009
+
+Baza se sastoji od slika. 
+Baza je korištena za praćenje skupa ljudi pomoću nadzornih kamera. Slike su
+u JPEG formatu. Dvije su različite dimenzije slika. Jedna vrsta slika dimenzija 
+je 768px x 576px, a druga vrsta 720px x 576px. Svojstvo baze je da su dimenzije
+osoba na slikama relativno malne s obzirom na cijelu sliku. Ovakva baza može
+ispitati koliko je sustav osjetljiv na dimenzije osoba.  
+
+PETS 2006
+
+Baza se sastoji slika u JPEG formatu. Dimenzija slika je 768px x 576px i
+posljedica su uzrokovanja 25 slika u sekundi. Baza je korištena za specifični 
+problem praćenja ostavljene prtljage. Kako je u središtu proučavanja osoba, ova
+baza pogodna je i za naš promatrani problem.
+
+BEHAVE
+
+Baza se sastoji od slika u JPEG formatu. Dimenzije slike su 640px x 480px i
+slike predstavljaju slike koje su uzrokovane s frekvencijom 25 slika u sekundi.
+Baza je korištena za prepoznavanje određenih ponašanja kod osoba promatranih 
+nadzornim kamerama.  
+
+Pedestrian
+
+Baza se sastoji od slika u PPM formatu. Baza sadrži 924 slika. 
+Slike su dimenzija 64px x 128px. Baza se sastoji od slika osoba. Procijenili 
+smo da je dobra kod testiranja različitih modela strojnog učenja.
+
+Inicijalni odabir baze
+
+Odlučili smo odabrati jednu 
+bazu podataka nad kojom ćemo promatrati problem i izraditi prototip. Odlučili
+smo se za INRIA bazu zbog toga što ima opisnike osoba na slici. Zbog toga
+možemo brzo izraditi primjere i testirati naš sustav.
