@@ -1,0 +1,20 @@
+Programski jezik
+Za implementaciju sustava odabran je programski jezik python. Glavni razlog odabira jezika je lakoća pisanja programskog koda te širok izbor biblioteka u kojima su implementirani algoritmi računalnog vida. Python također sadrži veliku paletu drugih biblioteka koje nisu dostupne u nekim drugim programskim jezicima (primjerice C/C++). U konačnoj fazi projekta biti će potrebno izraditi grafičko korisničko sučelje što ne predstavlja problem jer za python postoji puno različitih frameworka koji olakšavaju tu fazu projekta. Python također omogućava pokretanje implementiranog sustava na različitim operacijskim sustavima (Windows, Linux).
+
+Biblioteke 
+Za implementaciju sustava koriste se sljedeće programske biblioteke:
+  - openCV
+  - scikit-image
+
+OpenCV( Open Source Computer Vision) je biblioteka koja sadrži implementacije algoritama računalnog vida koji su namijenjeni za korištenjem u realnom vremenu. Pruža podršku i za algoritme stojnog učenja koji će biti korišteni u izradi projekta(primjerice k-NN, SVM, neuronske mreze). 
+
+Scikit-image je također biblioteka otvorenog koda. OpenCV više orijentiran na algoritme računalnog vida, dok scikit-image podržava više metoda za obradu slike. OpenCV podržava više programskih jezika(C++, python, Java), dok je biblioteka scikit-image namijenjena za python. Scikit-image za razliku od openCV-a za interno spremanje slika koristi numpy.ndarray. Novije verzije openCV-a također mogu koristiti numpy pa se time postiže međusobna kompatibilnost. Prednost scikit-image je lakše pisanje programskog koda i bolja razumljivost dokumentacije biblioteke. Pojedini algoritmi su implementirani unutar oba dvije biblioteke te se može uočiti bolja efikasnost openCV implementacije. Razlog tome je namjena openCV za primjenu u industriji.
+
+
+RapidMiner 
+RapidMiner je okruženje za strojno učenje, rudarenje podataka, itd. Alat će biti korišten za učenje, testiranje i validaciju modela koji će služiti za detekciju ljudi na video sekvencama. Alat pruža mogućnost istovremene primjene različitih postupaka učenja modela. Te na taj način možemo odabrati postupak koji daje najbolje rezultate. Dodatno podržava automatsku optimizaciju hiperparametara čime se model može dodatno poboljšati kako bi se postigli najbolji mogući rezultati. Cilj korištenja RapidMinera je pronaći najbolji model koji će kasnije biti implementiran korištenjem openCV/scikit-image biblioteka. 
+
+Repozitorij koda 
+Odabrali smo GitHub za repozitorij koda. Repozitorij koda je nužan budući da na razvoju sustava radi veći broj ljudi te postoji puno nadopuna programskog koda. GitHub pruža podršku za održavanje konzistencije i lakoću dijeljenja programskog koda. 
+
+
