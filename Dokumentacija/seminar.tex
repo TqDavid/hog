@@ -148,23 +148,152 @@
 
 \begin{itemize}
 
-\item \textbf{Multitarget Tracking of Pedestrians in Video Sequences Based on Particle Filters}, Hui Li, Shengwu Xiong, Pengfei Duan, Xiangzhen Kong
+\item \textbf{Multitarget Tracking of Pedestrians in Video Sequences Based on Particle Filters}
+\begin{itemize}
+\item Hui Li, Shengwu Xiong, Pengfei Duan, Xiangzhen Kong
+\item \url{http://www.hindawi.com/journals/am/2012/343724/}
+\end{itemize}
 
-\item \textbf{Object Tracking in Crowded Video Scenes Based on the Undecimated Wavelet Features and Texture Analysis}, M. Khansari, H. R. Rabiee, M. Asadi, M. Ghanbari
+\item \textbf{Object Tracking in Crowded Video Scenes Based on the Undecimated Wavelet Features and Texture Analysis}
+\begin{itemize}
+\item M. Khansari, H. R. Rabiee, M. Asadi, M. Ghanbari
+\item \url{http://asp.eurasipjournals.com/content/pdf/1687-6180-2008-243534.pdf}
+\end{itemize}
 
-\item \textbf{Real-time object detection and tracking for industrial applications}, Selim Benhimane, Hesam Najafi, Matthias Grundmann, Ezio Malis, Yakup Genc, Nassir Navab
+\item \textbf{Real-time object detection and tracking for industrial applications}
+\begin{itemize}
+\item  Selim Benhimane, Hesam Najafi, Matthias Grundmann, Ezio Malis, Yakup Genc, Nassir Navab
+\item \url{http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.119.2257}
+\end{itemize}
 
-\item \textbf{Efficient Tracking of Many Objects in Structured Environments}, Nathan Jacobs, Michael Dixon, Scott Satkin, Robert Pless
 
-\item \textbf{Fast and accurate moving object exraction technique for MPEG-4 object-based video coding}, Ju Guo, Jongwon Kim, C.C: Jay Kuo
+\item \textbf{Efficient Tracking of Many Objects in Structured Environments}
+\begin{itemize}
+\item Nathan Jacobs, Michael Dixon, Scott Satkin, Robert Pless
+\item \url{http://cse.wustl.edu/Research/Lists/Technical%20Reports/Attachments/859/sheet_tracking_tr.pdf}
+\end{itemize}
+
+\item \textbf{Fast and accurate moving object exraction technique for MPEG-4 object-based video coding}
+\begin{itemize}
+\item Ju Guo, Jongwon Kim, C.C: Jay Kuo
+\item \url{http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.6.6887}
+\end{itemize}
 
 \end{itemize}
 
 \chapter{Dijagram planiranog sustava}
 
+\begin{figure}[htb]
+\centering
+\includegraphics[height=3cm]{Dijagram1.png}
+\caption{Izlučivanje pozadine}
+\label{fig:sintaksno_stablo}
+\end{figure}
+
+\begin{figure}[htb]
+\centering
+\includegraphics[width=9cm]{Dijagram2.png}
+\caption{Prikaz rada sustava u realnom vremenu u modu traženja osobe na slici}
+\label{fig:sustav}
+\end{figure}
+
+\begin{figure}[htb]
+\centering
+\includegraphics[height=5cm]{Dijagram3.png}
+\caption{Učenje modela strojnog učenja (npr. SVM)}
+\label{fig:ucenje}
+\end{figure}
+
 \chapter{Baza slika/videa}
 
+\section{Uvod}
+
+Za promatrani problem koristi se dvije vrste baza podataka. Prva vrsta sastoji 
+se od slika a druga vrsta od video snimaka.  
+
+\section{Dostupne baze podataka}
+
+\subsection{INRIA}
+
+Baza se sastoji od slika. Navedena baza korištena je upravo za testiranje HOG 
+algoritma. Podijeljena je na pozitivne (na slici se nalazi jedna ili više osoba)
+i negativne (osoba na slici nema). Uz to, baza sadrži i opisnike slike koji
+u sebi sadrže informaciji o pozicijama osoba na slikama. Slike su dostupne u
+više različitih dimenzija (pixel x pixel): 70x134, 96x160 i 64x128.  
+Baza se sastoji od ukupno 1218 negativnih primjera slika i 614 pozitivnih slika.
+Za generiranje negativnih primjera negativne slike mogu se izrezivati na bilo
+koji način. Nad pozitivnim slikama definirani su opisnici tako da se ukupno 
+može generirati 2500 pozitivnih primjera.
+
+\subsection{CAVIAR Test Case Scenarios}
+
+Baza se sastoji od video snimaka. Baza je bazirana na javnim nadzornim kamerama.
+Baza se sastoji od skupa ciljanih akcija osoba. Detekcija akcija nije u središtu
+ovog projekta pa se mogu koristiti sve snimke ravnopravno. Dimenzija slika u 
+video snimkama je 384px x 288px. Format je MPEG2 i sadrži 25 slika u sekundi.
+
+\subsection{PETS 2009}
+
+Baza se sastoji od slika. 
+Baza je korištena za praćenje skupa ljudi pomoću nadzornih kamera. Slike su
+u JPEG formatu. Dvije su različite dimenzije slika. Jedna vrsta slika dimenzija 
+je 768px x 576px, a druga vrsta 720px x 576px. Svojstvo baze je da su dimenzije
+osoba na slikama relativno malne s obzirom na cijelu sliku. Ovakva baza može
+ispitati koliko je sustav osjetljiv na dimenzije osoba.  
+
+\subsection{PETS 2006}
+
+Baza se sastoji slika u JPEG formatu. Dimenzija slika je 768px x 576px i
+posljedica su uzrokovanja 25 slika u sekundi. Baza je korištena za specifični 
+problem praćenja ostavljene prtljage. Kako je u središtu proučavanja osoba, ova
+baza pogodna je i za naš promatrani problem.
+
+\subsection{BEHAVE}
+
+Baza se sastoji od slika u JPEG formatu. Dimenzije slike su 640px x 480px i
+slike predstavljaju slike koje su uzrokovane s frekvencijom 25 slika u sekundi.
+Baza je korištena za prepoznavanje određenih ponašanja kod osoba promatranih 
+nadzornim kamerama.  
+
+\subsection{Pedestrian}
+
+Baza se sastoji od slika u PPM formatu. Baza sadrži 924 slika. 
+Slike su dimenzija 64px x 128px. Baza se sastoji od slika osoba. Procijenili 
+smo da je dobra kod testiranja različitih modela strojnog učenja.
+
+\section{Inicijalni odabir baze}
+
+Odlučili smo odabrati jednu 
+bazu podataka nad kojom ćemo promatrati problem i izraditi prototip. Odlučili
+smo se za INRIA bazu zbog toga što ima opisnike osoba na slici. Zbog toga
+možemo brzo izraditi primjere i testirati naš sustav.
+
 \chapter{Programski alati}
+
+\section{Programski jezik}
+Za implementaciju sustava odabran je programski jezik python. Glavni razlog odabira jezika je lakoća pisanja programskog koda te širok izbor biblioteka u kojima su implementirani algoritmi računalnog vida. Python također sadrži veliku paletu drugih biblioteka koje nisu dostupne u nekim drugim programskim jezicima (primjerice C/C++). U konačnoj fazi projekta biti će potrebno izraditi grafičko korisničko sučelje što ne predstavlja problem jer za python postoji puno različitih frameworka koji olakšavaju tu fazu projekta. Python također omogućava pokretanje implementiranog sustava na različitim operacijskim sustavima (Windows, Linux).
+
+\section{Biblioteke} 
+Za implementaciju sustava koriste se sljedeće programske biblioteke:
+\begin{itemize} 
+	\item openCV
+	\item scikit-image
+\end{itemize}
+
+\subsection{OpenCV}
+OpenCV (Open Source Computer Vision) je biblioteka koja sadrži implementacije algoritama računalnog vida koji su namijenjeni za korištenjem u realnom vremenu. Pruža podršku i za algoritme stojnog učenja koji će biti korišteni u izradi projekta(primjerice k-NN, SVM, neuronske mreže). 
+
+\subsection{Scikit-image}
+Scikit-image je također biblioteka otvorenog koda. OpenCV više orijentiran na algoritme računalnog vida, dok scikit-image podržava više metoda za obradu slike. OpenCV podržava više programskih jezika(C++, python, Java), dok je biblioteka scikit-image namijenjena za python. Scikit-image za razliku od openCV-a za interno spremanje slika koristi numpy.ndarray. Novije verzije openCV-a također mogu koristiti numpy pa se time postiže međusobna kompatibilnost. Prednost scikit-image je lakše pisanje programskog koda i bolja razumljivost dokumentacije biblioteke. Pojedini algoritmi su implementirani unutar oba dvije biblioteke te se može uočiti bolja efikasnost openCV implementacije. Razlog tome je namjena openCV za primjenu u industriji.
+
+
+\section{RapidMiner} 
+RapidMiner je okruženje za strojno učenje, rudarenje podataka, itd. Alat će biti korišten za učenje, testiranje i validaciju modela koji će služiti za detekciju ljudi na video sekvencama. Alat pruža mogućnost istovremene primjene različitih postupaka učenja modela. Te na taj način možemo odabrati postupak koji daje najbolje rezultate. Dodatno podržava automatsku optimizaciju hiperparametara čime se model može dodatno poboljšati kako bi se postigli najbolji mogući rezultati. Cilj korištenja RapidMinera je pronaći najbolji model koji će kasnije biti implementiran korištenjem openCV/scikit-image biblioteka. 
+
+\section{Repozitorij koda} 
+Odabrali smo GitHub za repozitorij koda. Repozitorij koda je nužan budući da na razvoju sustava radi veći broj ljudi te postoji puno nadopuna programskog koda. GitHub pruža podršku za održavanje konzistencije i lakoću dijeljenja programskog koda. 
+
+
 
 %\bibliography{literatura}
 %\bibliographystyle{fer} %promijena za citiranje po redu ieeetr
