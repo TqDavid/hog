@@ -55,62 +55,110 @@
 
 \chapter{Prikupljena literatura}
 
+\section{HOG članci}
+
+\subsection{Histogram of Oriented Gradients for Human Detection}
+
 \begin{itemize}
-\item Navneet Dalal, i Bill Triggs. Histogram of Oriented Gradients for Human Detection. U International conference on Computer Vision & Pattern Recognition, Vol. 1, stranice 886-893, Lipanj 2005. URL: \url{http://lear.inrialpes.fr/people/triggs/pubs/Dalal-cvpr05.pdf}
-- opisan histogram orijentiranih gradijenata
-- analiziran utjecaj raznih parametara histograma na performanse
-- HOG primjenjene na prepoznavanje pješaka (uz korištenje SVM-a)
-- MIT i Inria baza pješaka, cca 2500 slika, originalne reflektirane
-- izdvajanje "teških" primjera
-- postojanje okoline oko osobe
+
+\item \textbf{Histogram of Oriented Gradients for Human Detection} 
+\item Navneet Dalal, i Bill Triggs
+\item U International conference on Computer Vision \& Pattern Recognition, Vol. 1, stranice 886-893, Lipanj 2005.
+	\begin{itemize} 
+		\item URL: \url{http://lear.inrialpes.fr/people/triggs/pubs/Dalal-cvpr05.pdf}
+		\item opisan histogram orijentiranih gradijenata
+		\item analiziran utjecaj raznih parametara histograma na performanse
+		\item HOG primjenjene na prepoznavanje pješaka (uz korištenje SVM-a)
+		\item MIT i Inria baza pješaka, cca 2500 slika, originalne reflektirane
+		\item izdvajanje "teških" primjera
+		\item postojanje okoline oko osobe
+	\end{itemize}
 \end{itemize}
 
-Qiang Zhu, Shai Avidan, Mei-Chen Yeh, i Kwang-Ting Cheng. Fast Human Detection Using a CAscade of Histograms of Oriented Gradients. U U International conference on Computer Vision & Pattern Recognition, Vol. 2, stranice 1491-1498, Lipanj 2006. URL: http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.68.6232&rep=rep1&type=pdf
-- ubrzanje traženja ljudi u slikama
-- ne koriste blokove fiksne veličine - globalne karakteristike
-- Ada-Boost
-- korištenje "integralne slike" - koriste se HOG-ovi izračunati za manje blokove da bi se ubrzalo računanje histograma za veće blokove
-- slučajan odabir blokova koji idu u klasifikator
+\subsection{Detection Using a CAscade of Histograms of Oriented Gradients}
+\begin{itemize}
+\item \textbf{Detection Using a CAscade of Histograms of Oriented Gradients}
+\item Qiang Zhu, Shai Avidan, Mei-Chen Yeh, i Kwang-Ting Cheng. Fast Human 
+\item U International conference on Computer Vision \& Pattern Recognition, Vol. 2, stranice 1491-1498, Lipanj 2006. 
+	\begin{itemize}
+		\item URL: \url{http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.68.6232&rep=rep1&type=pdf}
+		\item ubrzanje traženja ljudi u slikama
+		\item ne koriste blokove fiksne veličine - globalne karakteristike
+		\item Ada-Boost
+		\item korištenje "integralne slike" - koriste se HOG-ovi izračunati za manje blokove da bi se ubrzalo računanje histograma za veće blokove
+		\item slučajan odabir blokova koji idu u klasifikator
+	\end{itemize}
+\end{itemize}
 
+\subsection{Pedestrian Detection Using Infrared Images and Histograms of Oriented Gradients}
+\begin{itemize}
+\item \textbf{Pedestrian Detection Using Infrared Images and Histograms of Oriented Gradients}
+\item Frédéric Suard, Alain Rakotomamonjy, Abdelaziz Bensrhair, i Alberto Broggi
+\item U Intelligent Vehicles Symposium, stranice 206-212, 2006. 
+\begin{itemize}
+	\item URL: \url{http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.80.1379&rep=rep1&type=pdf}
+	\item detekcija ljudi pomoću infracrvenih slika
+	\item HOG značajke, SVM klasifikator
+	\item primjena u detekciji pješaka noću
+	\item odabir optimalnih parametara svih stavaka sustava za detekciju osoba
+	\item osrednji rezultati
+\end{itemize}
+\end{itemize}
 
-Frédéric Suard, Alain Rakotomamonjy, Abdelaziz Bensrhair, i Alberto Broggi. Pedestrian Detection Using Infrared Images and Histograms of Oriented Gradients. U Intelligent Vehicles Symposium, stranice 206-212, 2006. URL: http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.80.1379&rep=rep1&type=pdf
-- detekcija ljudi pomoću infracrvenih slika
-- HOG značajke, SVM klasifikator
-- primjena u detekciji pješaka noću
-- odabir optimalnih parametara svih stavaka sustava za detekciju osoba
-- osrednji rezultati
+\subsection{Visual Classification of Coarse Vehicle Orientation Using Histogram of Oriented Gradients Features}
+\begin{itemize}
+\item \textbf{Visual Classification of Coarse Vehicle Orientation Using Histogram of Oriented Gradients Features} 
+\item Paul E. Rybski, Daniel Huber, Daniel D. Morris, i Regis Hoffman
+\begin{itemize}
+		\item URL: \url{http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.183.4072&rep=rep1&type=pdf}
+		\item detekcija orijentacije vozila iz slike (bez informacije o smjeru kretanja)
+		\item jednostavna primjena prethodno opisanog algoritma na prepoznavanje vozila
+		\item korištena javno dostupna implementacija HOG-a
+		\item vrlo dobri rezultati
+	\end{itemize}
+\end{itemize}
 
-Paul E. Rybski, Daniel Huber, Daniel D. Morris, i Regis Hoffman. Visual Classiﬁcation of Coarse Vehicle Orientation Using Histogram of Oriented Gradients Features. URL: http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.183.4072&rep=rep1&type=pdf
-- detekcija orijentacije vozila iz slike (bez informacije o smjeru kretanja)
-- jednostavna primjena prethodno opisanog algoritma na prepoznavanje vozila
-- korištena javno dostupna implementacija HOG-a
-- vrlo dobri rezultati
+\subsection{Enhancing Real-time Human Detection based on Histograms of Oriented Gradients}
+\begin{itemize}
+		\item \textbf{Enhancing Real-time Human Detection based on Histograms of Oriented Gradients} 
+	\item Marco Pedersoli, Jordi Gonzàlez, Bhaskar Chakraborty, i Juan J. Villanueva
+	\begin{itemize} 
+		\item URL: \url{http://iselab.cvc.uab.es/files/Publications/2007/PDF/CORES07_MP.pdf}
+		\item ubrzanje računanje HOG-a, izrada frameworka za detekciju osoba
+		\item (pristupi detekciji osoba - detekcija cijele osobe vs. detekcija dijelova koji su povezani)
+		\item AdaBoost
+		\item računanje značajki za veće blokove preko značajki za manje blokove
+		\item MIT baza osoba
+		\end{itemize}
+\end{itemize}
 
+\subsection{Integral Histogram: A fast way to Extract Histograms in Cartesian Spaces}
+\begin{itemize}
+\item \textbf{Integral Histogram: A fast way to Extract Histograms in Cartesian Spaces}
+\item Fatih Porikli
+\item U International conference on Computer Vision \& Pattern Recognition, Vol. 1, stranice 829-836, Lipanj 2005. 
+	\begin{itemize}
+		\item URL: \url{http://www.merl.com/reports/docs/TR2005-057.pdf}
+		\item primjenjiv u sustavima koji rade u realnom vremenu
+		\item koristi se ta bilo koju metodu koja traži maksimalno preklapanje histograma
+	\end{itemize}
+\end{itemize}
 
-Marco Pedersoli, Jordi Gonzàlez, Bhaskar Chakraborty, i Juan J. Villanueva. Enhancing Real-time Human Detection based on Histograms of Oriented Gradients. URL: http://iselab.cvc.uab.es/files/Publications/2007/PDF/CORES07_MP.pdf
-- ubrzanje računanje HOG-a, izrada frameworka za detekciju osoba
-- (pristupi detekciji osoba - detekcija cijele osobe vs. detekcija dijelova koji su povezani)
-- AdaBoost
-- računanje značajki za veće blokove preko značajki za manje blokove
-- MIT baza osoba
+\section{Praćenje objekata}
 
+\begin{itemize}
 
-Fatih Porikli. Integral Histogram: A fast way to Extract Histograms in Cartesian Spaces. U International conference on Computer Vision & Pattern Recognition, Vol. 1, stranice 829-836, Lipanj 2005. URL: http://www.merl.com/reports/docs/TR2005-057.pdf
-- primjenjiv u sustavima koji rade u realnom vremenu
-- koristi se ta bilo koju metodu koja traži maksimalno preklapanje histograma
+\item \textbf{Multitarget Tracking of Pedestrians in Video Sequences Based on Particle Filters}, Hui Li, Shengwu Xiong, Pengfei Duan, Xiangzhen Kong
 
+\item \textbf{Object Tracking in Crowded Video Scenes Based on the Undecimated Wavelet Features and Texture Analysis}, M. Khansari, H. R. Rabiee, M. Asadi, M. Ghanbari
 
-„Multitarget Tracking of Pedestrians in Video Sequences Based on Particle Filters“, Hui Li, Shengwu Xiong, Pengfei Duan, Xiangzhen Kong
+\item \textbf{Real-time object detection and tracking for industrial applications}, Selim Benhimane, Hesam Najafi, Matthias Grundmann, Ezio Malis, Yakup Genc, Nassir Navab
 
-“Object Tracking in Crowded Video Scenes Based on the Undecimated Wavelet Features and Texture Analysis”, M. Khansari, H. R. Rabiee, M. Asadi, M. Ghanbari
+\item \textbf{Efficient Tracking of Many Objects in Structured Environments}, Nathan Jacobs, Michael Dixon, Scott Satkin, Robert Pless
 
-“Real-time object detection and tracking for industrial applications”, Selim Benhimane, Hesam Najafi, Matthias Grundmann, Ezio Malis, Yakup Genc, Nassir Navab
+\item \textbf{Fast and accurate moving object exraction technique for MPEG-4 object-based video coding}, Ju Guo, Jongwon Kim, C.C: Jay Kuo
 
-“Efficient Tracking of Many Objects in Structured Environments”, Nathan Jacobs, Michael Dixon, Scott Satkin, Robert Pless
-
-“Fast and accurate moving object exraction technique for MPEG-4 object-based video coding”, Ju Guo, Jongwon Kim, C.C: Jay Kuo
-
-﻿
+\end{itemize}
 
 \chapter{Dijagram planiranog sustava}
 
