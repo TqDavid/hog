@@ -9,4 +9,4 @@ for im in video.get_frames():
 	k = preprocess.getRectObjectFromImage(im)
 	for i in k:
 		cv2.imshow("test_obj", i.image)	
-	cv2.waitKey(1000)
+	cv2.waitKey(20)
