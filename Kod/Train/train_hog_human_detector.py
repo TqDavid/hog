@@ -9,7 +9,7 @@ import numpy as np
 
 
 db = LoadDataSet("../../..//INRIAPerson")
-cut = CutPicture(64.0, 128.0, 10)
+cut = CutPicture(64.0, 128.0, 3)
 hog = HOG(9, (6,6), (3,3))
 ex = Extract(hog, cut)
 
