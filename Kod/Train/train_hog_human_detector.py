@@ -4,7 +4,6 @@ from Load import LoadDataSet
 from Cut import CutPicture
 from Extract import HOG, Extract
 
-import pickle
 import numpy as np
 
 
