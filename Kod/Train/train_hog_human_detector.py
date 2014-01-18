@@ -24,8 +24,11 @@ print 'Ucenje'
 model = cv2.SVM()
 model.train(samples, classes)
 #model.save('Model/model1.svm')
-
-
+"""
+ self.est = cv2.SVM()
+        params = dict(kernel_type=cv2.SVM_LINEAR, svm_type=cv2.SVM_C_SVC)
+        self.est.train_auto(X, y, None, None, params, 3) #kfold=3 (default: 10)
+"""
 # ovaj dio radi testiranje 
 
 #model = cv2.SVM()

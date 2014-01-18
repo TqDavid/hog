@@ -1,13 +1,5 @@
+from Common import SubImage
 import cv2
-
-class SubImage:
-
-	def __init__(self, x, y, w, h, im):
-		self.x = x
-		self.y = y
-		self.w = w
-		self.h = h
-		self.image = im
 
 class Preprocess:
 
@@ -25,10 +17,14 @@ class Preprocess:
 		#Pretvaranje u sivu i ucenje povrsine
 		frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 		processImage = self.background.apply(frame)
-
+		
+		
 		#Trazenje kontura i detekcija objekata
 		contours, hierarchy = cv2.findContours(processImage, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-		cv2.drawContours(processImage, contours,-1,(255),thickness=5)
+
+		cv2.drawContours(processImage, contours,-1,(255),thickness=10)
+		#cv2.imshow("test_obj", processImage)
+		
 		contours, hierarchy = cv2.findContours(processImage, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
 		#Izdvajanje objekata
