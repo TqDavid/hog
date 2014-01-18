@@ -6,9 +6,9 @@ from Common import SubImage
 import cv2
 import numpy as np
 
-#video = LoadVideo("../../video.avi")
+video = LoadVideo("../../video.avi")
 #video = LoadVideo(0) #za web kameru ili ugradjenu na racunalu
-video = LoadVideo("/home/dino/Desktop/test.mpg")
+#video = LoadVideo("/home/dino/Desktop/test.mpg")
 #video = LoadVideo("/home/dino/Desktop/test1.avi")
 
 detection = Detection("model.svm")
