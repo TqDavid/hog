@@ -26,15 +26,14 @@ class Extract:
 	def getSamples(self, pos, neg):
 		listSamples = list()
 		listClass = list()
-		print 'Generiranje znacajki pozitiva'
+
 		for pic in pos:
 			pos_cuts = self.CUT.getPeople(pic[ 0 ], pic[ 1 ])
 			for p in pos_cuts:
 				descriptor = self.HOG.getDescriptor(p)
 				listSamples.append(descriptor)
 				listClass.append(array(1).astype('float32'))
-
-		print 'Generiranje znacajki negativa'
+				
 		for pic in neg:
 			neg_cuts = self.CUT.getPatches(pic)
 			for p in neg_cuts:

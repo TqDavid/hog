@@ -18,7 +18,7 @@ class CutPicture:
 		expr = re.compile("\((\d+), (\d+)\) - \((\d+), (\d+)\)")
 		for line in lines:
 			match = expr.search(line)
-			##print line
+			
 			if match:
 				xmin = float(match.group(1))
 				ymin = float(match.group(2))
