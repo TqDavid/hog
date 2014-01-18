@@ -13,34 +13,35 @@ hog = HOG(9, (6,6), (3,3))
 ex = Extract(hog, cut)
 
 
+print 'Generiranje znacajki...'
 pos, neg = db.loadTrainSet()
 X, y = ex.getSamples(pos, neg)
 
 X = np.array(X).astype('float32')
 y = np.array(y).astype('float32')
 
-print 'Ucenje'
+
+print 'Ucenje...'
 model = cv2.SVM() 
 params = dict(kernel_type=cv2.SVM_LINEAR, svm_type=cv2.SVM_C_SVC) 
 model.train_auto(X, y, None, None, params, 3) #kfold=3 (default: 10)
 
-model.save('Model/model.svm')
+model.save('../Model/model.svm')
 
 
-print 'Testiranje'
+print 'Testiranje...'
+model = cv2.SVM()
+#model.load('../Model/model.svm')
 pos = db.loadTestSet()
 X = ex.getTestSamples(pos)
+X = np.array(X).astype('float32')
 
-true = 0
-false = 0
-N = len(X)
 
-for sample in X:
-	if int(model.predict(np.array(sample).astype('float32'))) == 1:
-		true = true + 1
-	else:
-		false = false + 1
+ret = model.predict_all( X )
+N = ret.size
+true = np.nonzero( ret )[0].size
 
-print 'N: ', N
-print 'True: ', true, true/float(N)
-print 'False ', false
+print 'N: ', ret.size
+print 'True: ', true, true / float( N )
+print 'False: ', N - true
+print 'Gotovo...'
