@@ -5,8 +5,8 @@ class Preprocess:
 
 	#Kreiranje objekta (automat stanja) koji mice povrsinu
 	def __init__(self, size):
-		#self.background = cv2.BackgroundSubtractorMOG()
-		self.background = None#cv2.imread("test.png")
+		self.background = cv2.BackgroundSubtractorMOG()
+		#self.background = None#cv2.imread("test.png")
 		#self.background = cv2.cvtColor(self.background, cv2.COLOR_BGR2GRAY)
 		
 		self.height = size[1]
@@ -48,7 +48,7 @@ class Preprocess:
 		#Pretvaranje u sivu i ucenje povrsine
 		#frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 		#frame = cv2.equalizeHist(frame) 
-
+		"""
 		if self.background is None:
 			self.background = frame
 
@@ -76,13 +76,15 @@ class Preprocess:
 			thresh_d = 80
 			thresh_u = 255
 
+		tmp, processImage = cv2.threshold(diff, 100, 765, cv2.THRESH_BINARY) 
 
-		#self.background.apply(frame)
+		"""
+		
+		processImage = self.background.apply(frame)
 		
 		#processImage = cv2.GaussianBlur(processImage, (11,11), 0.5)
 		
-		tmp, processImage = cv2.threshold(diff, 100, 765, cv2.THRESH_BINARY) 
-
+		
 		#Trazenje kontura i detekcija objekata
 		contours, hierarchy = cv2.findContours(processImage, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 

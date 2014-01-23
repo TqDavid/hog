@@ -25,15 +25,24 @@ def rectIn(x, y, w, h, im):
 
 def notContain(x, y, w, h, humanImages):
 	for im in humanImages:
-		if ((im.x - x)**2 + (im.y - y)**2) < 10:
+		wIm = im.x + im.w / 2
+		hIm = im.y + im.h / 2
+		wMe = x + w / 2;
+		hMe = y + h / 2;
+
+		distance = ((wIm-wMe)**2 + (hIm - hMe)**2)
+		
+		if  distance < 100:
 			return False
+		
 		if rectIn(x,y,w,h,im):
 			return False
+	
 	return True
 
-#video = LoadVideo("../../video.avi")
+video = LoadVideo("../../video.avi")
 #video = LoadVideo(0) #za web kameru ili ugradjenu na racunalu
-video = LoadVideo("/home/dino/Desktop/test.mpg")
+#video = LoadVideo("/home/dino/Desktop/test_hog/test.mpg")
 #video = LoadVideo("/home/dino/Desktop/test1.avi")
 
 detection = Detection("model.svm")
@@ -44,7 +53,38 @@ humanImages = []
 cnt = 0
 
 for im in video.get_frames():
+
+	newHumanImages = []
+	rectangles = Tracking.findSubImages(im, humanImages)
+	for i in rectangles:
+		humanImg = np.copy(im[i.y:i.y+i.h,i.x:i.x+i.w])
+		newHumanImages.append(SubImage(i.x,i.y,i.w,i.h, humanImg))
+		#cv2.rectangle(im, (i.x, i.y), (i.x+i.w, i.y+i.h), (0,255,0), thickness=1)
+	humanImages = newHumanImages
+
+	if cnt % 2 == 0:
+		newHumanImages = []
+		rectangles = preprocess.getRectObjectFromImage(im)
+		for i in rectangles:
+			if ( detection.get_class(i.image) == 1 ):
+				#if notContain(i.x, i.y, i.w, i.h, humanImages):
+				humanImg = np.copy(im[i.y:i.y+i.h,i.x:i.x+i.w])
+				newHumanImages.append(SubImage(i.x,i.y,i.w,i.h, humanImg))
+			#cv2.rectangle(im, (i.x, i.y), (i.x+i.w, i.y+i.h), (255,0,0), thickness=1)
+				#cv2.rectangle(im, (i.x, i.y), (i.x+i.w, i.y+i.h), (0,0,255), thickness=1)
+
+		humanImages = humanImages + newHumanImages
+
+	newHumanImages = []
+	for i in humanImages:
+		if notContain(i.x, i.y, i.w, i.h, newHumanImages):
+			humanImg = np.copy(im[i.y:i.y+i.h,i.x:i.x+i.w])
+			newHumanImages.append(SubImage(i.x,i.y,i.w,i.h, humanImg))
+			cv2.rectangle(im, (i.x, i.y), (i.x+i.w, i.y+i.h), (0,255,0), thickness=1)
 	
+	humanImages = newHumanImages
+
+	"""
 	if cnt % 2 != 0:
 		newHumanImages = []
 		rectangles = Tracking.findSubImages(im, humanImages)
@@ -65,6 +105,7 @@ for im in video.get_frames():
 				cv2.rectangle(im, (i.x, i.y), (i.x+i.w, i.y+i.h), (0,0,255), thickness=1)
 
 		humanImages += newHumanImages
+	"""
 
 	im = cv2.resize(im, (640,480))
 	
