@@ -1,0 +1,94 @@
+\documentclass[times, utf8, seminar, numeric]{fer}
+\usepackage{booktabs, url, hyperref}
+\usepackage{verbatim}
+\usepackage{moreverb}
+\usepackage{subfigure}
+\usepackage{caption}
+\usepackage{epstopdf}
+\usepackage{amsthm}
+
+\hypersetup{
+   colorlinks,
+   citecolor=black,
+   filecolor=black,
+   linkcolor=black,
+   urlcolor=black
+}
+
+%dodatak za programski kod
+\usepackage{listings}
+\usepackage{color}
+\usepackage{setspace}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=Java,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=left,
+  numberstyle=\small\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=2
+}
+
+
+\begin{document}
+
+% TODO: Navedite naslov rada.
+\title{Histogram orijentiranih gradijenata - detekcija i praćenje ljudi}
+
+% TODO: Navedite vaše ime i prezime.
+\author{Petra Bevandić \\ Dragan Drandić \\ Melita Kokot \\ Igor Smolkovič \\ Dino Šantl}
+
+\maketitle
+
+\tableofcontents
+
+\chapter{Projektni zadatak}
+\section{Opis projektnog zadatka}
+\section{Pregled i opis srodnih rješenja}
+\section{Konceptualno rješenje zadatka}
+\chapter{Postupak rješavanja zadatka}
+\section{Naziv prvog koraka}
+\subsection{Naziv prvog algoritma}
+\subsection{Naziv drugog algoritma}
+\section{Naziv drugog koraka}
+\chapter{Ispitivanje rješenja}
+\section{Ispitna baza}
+\section{Rezultati učenja i ispitivanja}
+\section{Analiza rezultata}
+\chapter{Opis programske implementacije rješenja}
+\chapter{Zaključak}
+
+\bibliography{literatura}
+\bibliographystyle{fer} %promijena za citiranje po redu ieeetr
+%\bibliographystyle{ieeetr}
+
+\begin{comment}
+\begin{sazetak}
+Simbolička regresija je postupak otkrivanja matematičkog izraza u skupu podataka. Daje se pregled metoda za simboličku regresiju s naglaskom na genetsko programiranje. Obrađuju se problemi kao što su domene funkcija (nisu definirane na cijelom skupu realnih brojeva). Problemi se rješavaju intervalnom aritmetikom i linearnim skaliranjem. Na kraju se ukratko opisuje mogućnost paralelizacije i primjene. 
+
+\kljucnerijeci{genetsko programiranje, s}
+
+\end{sazetak}
+
+% TODO: Navedite naslov na engleskom jeziku.
+\engtitle{Application of graphics coprocessors for program execution on stream programming model}
+
+\begin{abstract}
+
+
+\keywords{GPU, StreamIt, Sponge, StreamGate, CUDA, stream model, filter, optimization, graphics card}
+\end{abstract}
+\end{comment}
+
+\end{document}
