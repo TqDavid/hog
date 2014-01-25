@@ -11,7 +11,6 @@ class LoadDataSet:
 	def loadTrainSet(self):
 		trainPos = self.list_pos(self.trainFolder)
 		trainNeg = self.list_neg(self.trainFolder)
-
 		return trainPos, trainNeg
 
 
