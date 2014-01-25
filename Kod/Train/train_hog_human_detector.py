@@ -12,7 +12,6 @@ cut = CutPicture(64.0, 128.0, 3)
 hog = HOG(9, (6,6), (3,3))
 ex = Extract(hog, cut)
 
-
 print 'Generiranje znacajki...'
 pos, neg = db.loadTrainSet()
 X, y = ex.getSamples(pos, neg)
@@ -38,11 +37,13 @@ print "Model je ucitan..."
 
 pos, neg = db.loadTestSet()
 X, y = ex.getSamples(pos, neg)
+
 X = np.array(X).astype('float32')
 y = np.array(y).astype('float32')
 
 print "Test pos: " + str(len(pos))
 print "Test neg: " + str(len(neg))
+
 
 TP = 0
 TF = 0
