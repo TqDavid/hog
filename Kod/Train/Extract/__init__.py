@@ -43,7 +43,7 @@ class Extract:
 
 		return listSamples, listClass 
 
-
+	# moze izrezati samo pozitive
 	def getTestSamples(self, pos):
 		listSamples = list()
 
@@ -53,4 +53,3 @@ class Extract:
 				descriptor = self.HOG.getDescriptor(p)
 				listSamples.append(descriptor)
 		return listSamples
-		

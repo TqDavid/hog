@@ -11,13 +11,13 @@ class LoadDataSet:
 	def loadTrainSet(self):
 		trainPos = self.list_pos(self.trainFolder)
 		trainNeg = self.list_neg(self.trainFolder)
-
 		return trainPos, trainNeg
 
 
 	def loadTestSet(self):
 		testPos = self.list_pos(self.testFolder)
-		return testPos
+		testNeg = self.list_neg(self.testFolder)
+		return testPos, testNeg
 
 
 	def list_pos(self, folder):
