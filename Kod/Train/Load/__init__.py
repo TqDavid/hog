@@ -17,7 +17,8 @@ class LoadDataSet:
 
 	def loadTestSet(self):
 		testPos = self.list_pos(self.testFolder)
-		return testPos
+		testNeg = self.list_neg(self.testFolder)
+		return testPos, testNeg
 
 
 	def list_pos(self, folder):
