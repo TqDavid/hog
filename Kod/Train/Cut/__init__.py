@@ -25,21 +25,27 @@ class CutPicture:
 				xmax = float(match.group(3))
 				ymax = float(match.group(4))
 
-				width = xmax - xmin
+				width = xmax - xmin 
 				xcenter = round((xmax + xmin) / 2)
 				height = ymax - ymin
 				ycenter = round((ymax + ymin) / 2)
 
 				if height / width < self.HEIGHT / self.WIDTH:
+					width = width + 8/self.WIDTH * width
 					height = self.HEIGHT / self.WIDTH * width
-					ymax = min(image.shape[0] - 1, ycenter + round(height / 2))
-					ymin = max(0, ycenter - round(height / 2))
 				else:
+					height = height + 8/self.HEIGHT * height
 					width = self.WIDTH / self.HEIGHT * height
-					xmax = min(image.shape[1] - 1, xcenter + round(width / 2))
-					xmin = max(0, xcenter - round(width / 2))
+					
+				ymin = max(0, ycenter - round(height / 2))
+				ymax = min(image.shape[0] - 1, ycenter + round(height / 2))
+								
+				xmin = max(0, xcenter - round(width / 2))
+				xmax = min(image.shape[1] - 1, xcenter + round(width / 2))
 
 				tmp = cv2.resize (image[ymin:ymax, xmin:xmax], (int(self.WIDTH), int(self.HEIGHT)))
+				#cv2.imshow("test", tmp)
+				#cv2.waitKey(1000)
 				people.append(tmp)
 				people.append(cv2.flip(tmp, 1)) # dodatno jos i zrcaljena slika po y osi
 		return people

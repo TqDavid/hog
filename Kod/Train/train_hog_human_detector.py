@@ -25,13 +25,21 @@ ex = Extract(hog, cut)
 if int(sys.argv[ 2 ]) == 0:
 	print 'Generiranje znacajki...'
 	pos, neg = db.loadTrainSet()
-	X, y = ex.getSamples(pos, neg)
+	
+	lPos = 1178
+	lNeg = 1359
 
+	#X, y = ex.getSamples(pos, neg, lPos, lNeg)
+	
+	X, y = ex.getSamples(pos, neg)
+	
 	X = np.array(X).astype('float32')
 	y = np.array(y).astype('float32')
-
-	print "Train pos: " + str(len(pos))
-	print "Train neg: " + str(len(neg))
+	
+	noPos = np.sum(y == 1.0)
+	noNeg = np.sum(y == 0.0)
+	print "Train pos: " + str(noPos)
+	print "Train neg: " + str(noNeg)
 
 	print 'Ucenje...'
 	model = cv2.SVM() 
@@ -52,9 +60,10 @@ elif int(sys.argv[ 2 ]) == 1:
 	X = np.array(X).astype('float32')
 	y = np.array(y).astype('float32')
 
-	print "Test pos: " + str(len(pos))
-	print "Test neg: " + str(len(neg))
-
+	noPos = np.sum(y == 1.0)
+	noNeg = np.sum(y == 0.0)
+	print "Test pos: " + str(noPos)
+	print "Test neg: " + str(noNeg)
 
 	TP = 0
 	TF = 0

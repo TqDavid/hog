@@ -23,23 +23,37 @@ class Extract:
 		self.CUT = cut
 
 
-	def getSamples(self, pos, neg):
+	def getSamples(self, pos, neg, *args):
+		
+		lPos = 100000000
+		lNeg = 100000000
+
+		if len(args) == 2:
+			lPos = args[0]
+			lNeg = args[1]
+
 		listSamples = list()
 		listClass = list()
 
 		for pic in pos:
 			pos_cuts = self.CUT.getPeople(pic[ 0 ], pic[ 1 ])
 			for p in pos_cuts:
+				if lPos == 0:
+					break
 				descriptor = self.HOG.getDescriptor(p)
 				listSamples.append(descriptor)
 				listClass.append(array(1).astype('float32'))
-				
+				lPos -= 1
+
 		for pic in neg:
 			neg_cuts = self.CUT.getPatches(pic)
+			if lNeg == 0:
+				break
 			for p in neg_cuts:
 				descriptor = self.HOG.getDescriptor(p)
 				listSamples.append(descriptor)
 				listClass.append(array(0).astype('float32'))
+				lNeg -= 1
 
 		return listSamples, listClass 
 

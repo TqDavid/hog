@@ -7,7 +7,6 @@ class LoadDataSet:
 		self.trainFolder = os.path.join(dbFolder, 'Train')
 		self.testFolder = os.path.join(dbFolder, 'Test')
 
-
 	def loadTrainSet(self):
 		trainPos = self.list_pos(self.trainFolder)
 		trainNeg = self.list_neg(self.trainFolder)
